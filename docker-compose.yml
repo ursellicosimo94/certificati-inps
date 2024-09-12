@@ -1,0 +1,11 @@
+services:
+  certificati-inps:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: sh /var/www/entrypoint.sh
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+    environment:
+      XDEBUG_CONFIG: "remote_host=host.docker.internal"
